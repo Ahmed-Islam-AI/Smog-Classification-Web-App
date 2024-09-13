@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="{{ 'foggy' if is_foggy else 'clear' }}">
+    <div class="container">
+        <h1>Weather Information</h1>
+        <p>City: {{ weather.location.name }}</p>
+        <p>Country: {{ weather.location.country }}</p>
+        <p>Condition: {{ weather.current.weather_descriptions[0] }}</p>
+        <p>Temperature: {{ weather.current.temperature }}°C</p>
+
+        {% if is_foggy %}
+            <h3 class="notification">Alert: It's foggy!</h3>
+        {% else %}
+            <h3>Visibility is clear.</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
