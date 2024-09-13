@@ -1,0 +1,29 @@
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Scripts loaded and DOM is ready');
+
+    // Example: Form submission handling
+    const weatherForm = document.getElementById('weather-form');
+    if (weatherForm) {
+        weatherForm.addEventListener('submit', (event) => {
+            const city = document.getElementById('city').value;
+            const country = document.getElementById('country').value;
+
+            if (!city) {
+                alert('City name is required!');
+                event.preventDefault(); // Prevent form submission
+            } else if (!country) {
+                alert('Country code is optional but recommended.');
+            }
+        });
+    }
+
+    const fileInput = document.getElementById('file');
+    if (fileInput) {
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                console.log(`Selected file: ${file.name}`);
+            }
+        });
+    }
+});
