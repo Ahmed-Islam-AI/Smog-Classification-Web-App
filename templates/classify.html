@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smog Classification Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="{{ 'foggy' if is_foggy else 'clear' }}">
+    <div class="container">
+        <h1>Smog Classification Result</h1>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" width="300">
+        {% if is_foggy %}
+            <h3>Alert: Foggy conditions detected in the image!</h3>
+        {% else %}
+            <h3>No Smog detected in the image</h3>
+        {% endif %}
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
