@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMOG DETECTION APP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome SMOG DETECTION APP</h1>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Explore Weather Conditions by your location</h2>
+            <form action="{{ url_for('get_weather') }}" method="POST">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+                
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country">
+                
+                <button type="submit">Check Weather</button>
+            </form>
+        </section>
+        
+        <section>
+            <h2> or Upload Image to inquire about weather conditions</h2>
+            <form action="{{ url_for('classify_fog') }}" method="POST" enctype="multipart/form-data">
+                <label for="file">Select an image:</label>
+                <input type="file" id="file" name="file" accept=".png, .jpg, .jpeg" required>
+                
+                <button type="submit">Classify Image</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Smog Detection App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
